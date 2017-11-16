@@ -38,14 +38,30 @@ class NavBar extends Component {
                 >
                     <div
                     style={{
+                        backgroundColor: '#478eae',
                         height: '80px',
                         width: '100%',
-                        backgroundColor: '#478eae',
                         fontSize: '18px',
                         fontWeight: 'bold',
                         color: '#ffffff'
                     }}>
-                        Intidirectory
+                        <Divider/>
+                        {
+                            (currentUser) ?
+                                <Card>
+                                    <CardHeader
+                                        title={`Hello, ${currentUser.displayName}`}
+                                        avatar={`${currentUser.photoURL}`}
+                                    />
+                                </Card>
+                                :
+                                <Card>
+                                    <CardHeader
+                                        title={'No User Logged In Yet'}
+                                        avatar={'https://t4.ftcdn.net/jpg/00/97/00/09/160_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg'}
+                                    />
+                                </Card>
+                        }
                     </div>
                     <Link to={'/'}>
                         <MenuItem
@@ -58,19 +74,7 @@ class NavBar extends Component {
                         <MenuItem
                             onClick={this.toggleNav}
                             primaryText={'Profile'}
-                        >
-                            {
-                                (currentUser) ?
-                                <Card>
-                                    <CardHeader
-                                        title={`${currentUser.displayName}`}
-                                        avatar={`${currentUser.photoURL}`}
-                                    />
-                                </Card>
-                                :
-                                null
-                            }
-                        </MenuItem>
+                        />
                     </Link>
                     <Divider/>
                     {

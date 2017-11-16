@@ -28,6 +28,7 @@ const Header = styled.header`
     text-align: center;
     font-size: 2em;
     font-family: 'Roboto', sans-serif;
+    padding-bottom: 10px;
 `;
 
 export {
