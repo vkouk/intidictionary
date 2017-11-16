@@ -1,9 +1,9 @@
 {
-  "name": "Intidirectory Server",
+  "name": "Intidictionary Server",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://vkoukoutis@bitbucket.org/vkoukoutis/intidirectory.git"
+    "url": "git+https://vkoukoutis@bitbucket.org/vkoukoutis/intidictionary.git"
   },
   "scripts": {
     "start": "node ./bin/www"

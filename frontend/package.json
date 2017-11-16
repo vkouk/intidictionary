@@ -1,10 +1,10 @@
 {
-  "name": "IntiDirectory",
+  "name": "IntiDictionary",
   "version": "1.0.0",
-  "description": "A smart & fast intelligent directory.",
+  "description": "A smart & fast intelligent dictionary.",
   "repository": {
     "type": "git",
-    "url": "git+https://vkoukoutis@bitbucket.org/vkoukoutis/intidirectory.git"
+    "url": "git+https://vkoukoutis@bitbucket.org/vkoukoutis/intidictionary.git"
   },
   "author": "Vasilis Koukoutis",
   "dependencies": {
@@ -25,8 +25,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://intidirectory.herokuapp.com",
+  "proxy": "https://intidictionary.herokuapp.com",
   "main": "src/index.js",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/vkoukoutis/intidirectory#readme"
+  "homepage": "https://bitbucket.org/vkoukoutis/intidictionary#readme"
 }

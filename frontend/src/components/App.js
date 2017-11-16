@@ -13,12 +13,12 @@ class App extends Component {
         };
 
         firebase.initializeApp({
-            apiKey: "AIzaSyAbDH47blxxW2SLozaKkaVvRXmdvvDgG7U",
-            authDomain: "intidirectory.firebaseapp.com",
-            databaseURL: "https://intidirectory.firebaseio.com",
-            projectId: "intidirectory",
-            storageBucket: "",
-            messagingSenderId: "237515571968"
+            apiKey: "AIzaSyD-IvvvLgux_DswkPakJHIxL-pBc9moJrg",
+            authDomain: "intidictionary.firebaseapp.com",
+            databaseURL: "https://intidictionary.firebaseio.com",
+            projectId: "intidictionary",
+            storageBucket: "intidictionary.appspot.com",
+            messagingSenderId: "995606826043"
         });
 
         firebase.auth().onAuthStateChanged((user) => {
@@ -39,7 +39,7 @@ class App extends Component {
                 <div>
                     <NavBar/>
                     <Header>
-                        intidirectory
+                        intidictionary
                     </Header>
                     <AppTemplate>
                         {this.props.children}
