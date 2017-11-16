@@ -26,7 +26,7 @@ class UpdateProfile extends Component {
 
     render() {
         let { error } = this.state;
-        const { displayName, email, photoUrl } = this.props;
+        const { displayName, email, photoURL } = this.props;
         const { currentUser } = firebase.auth();
 
         return(
@@ -52,8 +52,8 @@ class UpdateProfile extends Component {
                     hintText="Photo url..."
                     floatingLabelText="Photo Url"
                     type="text"
-                    value={photoUrl}
-                    //onChange={event => this.setState({email: event.target.value })}
+                    value={`${photoURL}`}
+                    onChange={event => this.setState({email: event.target.value })}
                     errorText={`${error}`}
                 /><br />
                 <FlatButton

@@ -33,7 +33,6 @@ class Login extends Component {
 
     async userLoginRegister() {
         const { email, password } = this.state;
-        const ref = firebase.database().ref();
 
         try {
             await firebase.auth().signInWithEmailAndPassword(email, password)
@@ -55,14 +54,10 @@ class Login extends Component {
                                 error: ''
                             });
 
-                            ref.child(`users/${user.uid}/info`)
-                                .set({
-                                    email: user.email,
-                                    uid: user.uid,
-                                    displayName: `User.${user.uid.slice(0,5)}`,
-                                    photoUrl: 'https://t4.ftcdn.net/jpg/00/97/00/09/160_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg'
-                                })
-                                .then(() => user)
+                            user.updateProfile({
+                                displayName: `User.${user.uid.slice(0,5)}`,
+                                photoURL: 'https://t4.ftcdn.net/jpg/00/97/00/09/160_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg'
+                            });
                         })
                         .catch((error) => {
                             console.log(error);

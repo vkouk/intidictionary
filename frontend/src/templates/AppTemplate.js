@@ -17,6 +17,7 @@ const Container = styled.div`
     margin: auto;
     width: 80%;
     min-height: 80vh;
+    font-size: 18px;
     ${media.handheld`
         width: 100%;
         

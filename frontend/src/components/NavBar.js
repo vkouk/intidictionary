@@ -3,14 +3,18 @@ import firebase from 'firebase';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
+import {Card, CardHeader} from 'material-ui/Card';
 import {NavBarButton} from '../templates/NavBarTemplate';
 import { Link } from 'react-router';
 
 class NavBar extends Component {
-    state = {
-        open: true,
-        width: 250
-    };
+    constructor() {
+        super();
+        this.state = {
+            open: true,
+            width: 250
+        };
+    }
 
     toggleNav = () => {
         this.setState((prevState, props) => {
@@ -57,15 +61,29 @@ class NavBar extends Component {
                         <MenuItem
                             onClick={this.toggleNav}
                             primaryText={'Profile'}
-                        />
+                        >
+                            {
+                                (currentUser) ?
+                                <Card>
+                                    <CardHeader
+                                        title={`${currentUser.displayName}`}
+                                        avatar={`${currentUser.photoURL}`}
+                                    />
+                                </Card>
+                                :
+                                null
+                            }
+                        </MenuItem>
                     </Link>
                     <Divider/>
-                    <Link to={'/login'}>
-                        <MenuItem
-                            onClick={this.toggleNav}
-                            primaryText={'Logout'}
-                        />
-                    </Link>
+                    {
+                        (currentUser) ? <Link to={'/login'}>
+                            <MenuItem
+                                onClick={this.toggleNav}
+                                primaryText={'Logout'}
+                            />
+                        </Link> : null
+                    }
                 </Drawer>
             </div>
         );

@@ -7,7 +7,7 @@ class Home extends Component {
 
         return (
             <div>
-                <p>{`Hello ${currentUser.email}`}</p>
+                <p>{`Hello ${currentUser.displayName}`}</p>
             </div>
         )
     }
