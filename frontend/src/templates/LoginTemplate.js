@@ -7,9 +7,11 @@ const LoginTemplate = styled.div`;
 `;
 
 const LoginTemplateH1 = styled.h2`
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
     color: #576464;
+    text-align: center;
+    padding-bottom: 20px;
 `;
 
 export {

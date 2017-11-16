@@ -27,8 +27,6 @@ class Profile extends Component {
                         });
                     }
                 });
-            } else {
-                return "Please go back and sign in";
             }
         });
     }
