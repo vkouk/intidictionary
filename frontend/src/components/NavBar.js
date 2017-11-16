@@ -1,50 +1,73 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
-import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
-import Paper from 'material-ui/Paper';
-import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
-const nearbyIcon = <IconLocationOn />;
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import Divider from 'material-ui/Divider';
+import {NavBarButton} from '../templates/NavBarTemplate';
+import { Link } from 'react-router';
 
 class NavBar extends Component {
+    state = {
+        open: true,
+        width: 250
+    };
+
+    toggleNav = () => {
+        this.setState((prevState, props) => {
+            return {
+                open: !prevState.open
+            }
+        })
+    }
+
     render() {
         const { currentUser } = firebase.auth();
+        let { open, width } = this.state;
 
         return (
-            (currentUser) ?
-                <Paper zDepth={2}>
-                    <BottomNavigation>
-                        <BottomNavigationItem
-                            label="Home"
-                            icon={nearbyIcon}
-                            onClick={() =>  window.location.href = '/'}
+            <div>
+                <NavBarButton
+                    onClick={this.toggleNav}
+                    width={width}
+                    open={open}
+                />
+                <Drawer
+                    open={open}
+                    width={width}
+                >
+                    <div
+                    style={{
+                        height: '80px',
+                        width: '100%',
+                        backgroundColor: '#478eae',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        color: '#ffffff'
+                    }}>
+                        Intidirectory
+                    </div>
+                    <Link to={'/'}>
+                        <MenuItem
+                            onClick={this.toggleNav}
+                            primaryText={'Home'}
                         />
-                        <BottomNavigationItem
-                            label="Profile"
-                            icon={nearbyIcon}
-                            onClick={() =>  window.location.href = '/profile'}
+                    </Link>
+                    <Divider/>
+                    <Link to={'/profile'}>
+                        <MenuItem
+                            onClick={this.toggleNav}
+                            primaryText={'Profile'}
                         />
-                        <BottomNavigationItem
-                            label="Logout"
-                            icon={nearbyIcon}
-                            onClick={() =>  window.location.href = '/login'}
+                    </Link>
+                    <Divider/>
+                    <Link to={'/login'}>
+                        <MenuItem
+                            onClick={this.toggleNav}
+                            primaryText={'Logout'}
                         />
-                    </BottomNavigation>
-                </Paper>
-                :
-                <Paper zDepth={2}>
-                    <BottomNavigation>
-                        <BottomNavigationItem
-                            label="Home"
-                            icon={nearbyIcon}
-                            onClick={() =>  window.location.href = '/'}
-                        />
-                        <BottomNavigationItem
-                            label="Login"
-                            icon={nearbyIcon}
-                            onClick={() =>  window.location.href = '/login'}
-                        />
-                    </BottomNavigation>
-                </Paper>
+                    </Link>
+                </Drawer>
+            </div>
         );
     }
 }

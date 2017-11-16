@@ -3,10 +3,9 @@ import NavBar from "./NavBar";
 import Login from "./Login";
 import firebase from 'firebase';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppTemplate from '../templates/AppTemplate';
+import {AppTemplate, Header} from '../templates/AppTemplate';
 
 class App extends Component {
-
     constructor() {
         super();
         this.state = {
@@ -32,13 +31,14 @@ class App extends Component {
     }
 
   render() {
-        const { isLoggedIn } = this.state;
+    const { isLoggedIn } = this.state;
 
     return (
         (isLoggedIn) ?
             <MuiThemeProvider>
                 <div>
                     <NavBar/>
+                    <Header/>
                     <AppTemplate>
                         {this.props.children}
                     </AppTemplate>

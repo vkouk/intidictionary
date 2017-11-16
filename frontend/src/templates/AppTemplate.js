@@ -1,16 +1,31 @@
+import React from 'react';
 import styled from 'styled-components';
 
-const AppTemplate = styled.main`
-  max-width: 1170px;
-  height: auto;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 22px;
-  position: relative;
-  margin: 20px auto 30px auto;
-  padding-left: 2px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+const AppTemplate = (props) => {
+    return (
+        <Container>
+            {props.children}
+        </Container>
+    )
+}
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-item: center;
+    margin: auto;
+    width: 80%;
+    min-height: 80vh;
 `;
 
-export default AppTemplate;
+const Header = styled.header`
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+`;
+
+export {
+    AppTemplate,
+    Header,
+    Container
+};

@@ -58,7 +58,9 @@ class Login extends Component {
                             ref.child(`users/${user.uid}/info`)
                                 .set({
                                     email: user.email,
-                                    uid: user.uid
+                                    uid: user.uid,
+                                    displayName: `User.${user.uid.slice(0,5)}`,
+                                    photoUrl: 'https://t4.ftcdn.net/jpg/00/97/00/09/160_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg'
                                 })
                                 .then(() => user)
                         })
@@ -109,13 +111,13 @@ class Login extends Component {
                 :
                 <LoginTemplate>
                     <LoginTemplateH1>Logout by pressing the button.</LoginTemplateH1>
-                <FlatButton
-                    label="Logout"
-                    labelPosition="before"
-                    primary={true}
-                    icon={<CheckCircle />}
-                    onClick={this.logoutUser.bind(this)}
-                />
+                    <FlatButton
+                        label="Logout"
+                        labelPosition="before"
+                        primary={true}
+                        icon={<CheckCircle />}
+                        onClick={this.logoutUser.bind(this)}
+                    />
                 </LoginTemplate>
         )
     }

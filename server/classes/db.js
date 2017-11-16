@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 class DB {
-    constructor(host, user, password, database, port) {
+    constructor(host = 'db21.papaki.gr', user = 'n9126_idic', password = 'vasilis1391994', database = 'n91264atha_idic', port = '3306') {
         this.host      = host;
         this.user      = user;
         this.password  = password;

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const LoginTemplate = styled.div`;
+const UpdateProfileTemplate = styled.div`;
   max-width: 275px;
   margin: 0 auto;
   padding-top: 15px;
 `;
 
-const LoginTemplateH1 = styled.h1`
+const UpdateProfileTemplateH1 = styled.h1`
     font-size: 17px;
     font-weight: bold;
     color: #576464;
@@ -15,6 +15,6 @@ const LoginTemplateH1 = styled.h1`
 `;
 
 export {
-  LoginTemplate,
-  LoginTemplateH1
+    UpdateProfileTemplate,
+    UpdateProfileTemplateH1
 };

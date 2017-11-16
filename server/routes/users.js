@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const DB = require('../classes/db');
 
-const database = new DB('db21.papaki.gr', 'n9126_storewh', 'vasilis1391994', 'n91264atha_storewh', '3306');
+const database = new DB();
 
 router.get('/', (req, res) => {
     res.send('API BackEndServer');
