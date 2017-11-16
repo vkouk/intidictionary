@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {media} from '../utils/Media';
 
 const AppTemplate = (props) => {
     return (
@@ -16,6 +17,10 @@ const Container = styled.div`
     margin: auto;
     width: 80%;
     min-height: 80vh;
+    ${media.handheld`
+        width: 100%;
+        
+    `}
 `;
 
 const Header = styled.header`

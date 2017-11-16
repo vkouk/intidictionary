@@ -38,7 +38,9 @@ class App extends Component {
             <MuiThemeProvider>
                 <div>
                     <NavBar/>
-                    <Header/>
+                    <Header>
+                        intidirectory
+                    </Header>
                     <AppTemplate>
                         {this.props.children}
                     </AppTemplate>
