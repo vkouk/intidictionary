@@ -1,0 +1,16 @@
+{
+  "name": "intidirectory",
+  "version": "1.0.0",
+  "description": "A smart & fast intelligent directory.",
+  "main": "frontend/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://vkoukoutis@bitbucket.org/vkoukoutis/intidirectory.git"
+  },
+  "author": "VasilisKoukoutis",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/vkoukoutis/intidirectory#readme"
+}
