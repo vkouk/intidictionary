@@ -8,13 +8,10 @@ import {NavBarButton} from '../templates/NavBarTemplate';
 import { Link } from 'react-router';
 
 class NavBar extends Component {
-    constructor() {
-        super();
-        this.state = {
-            open: true,
-            width: 250
-        };
-    }
+    state = {
+        open: true,
+        width: 250
+    };
 
     toggleNav = () => {
         this.setState((prevState, props) => {
@@ -77,7 +74,7 @@ class NavBar extends Component {
                     </Link>
                     <Divider/>
                     {
-                        (currentUser) ? <Link to={'/login'}>
+                        (currentUser) ? <Link to={'/logout'}>
                             <MenuItem
                                 onClick={this.toggleNav}
                                 primaryText={'Logout'}

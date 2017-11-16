@@ -3,7 +3,7 @@ import {Route, IndexRoute} from 'react-router';
 import App from '../components/App';
 import Home from '../components/Home';
 import Profile from '../components/Profile';
-import Login from "../components/Login";
+import Logout from "../components/Logout";
 
 const createRoutes = () => {
     return (
@@ -19,8 +19,8 @@ const createRoutes = () => {
                 component={Profile}
             />
             <Route
-                path={'/login'}
-                component={Login}
+                path={'/logout'}
+                component={Logout}
             />
         </Route>
     )

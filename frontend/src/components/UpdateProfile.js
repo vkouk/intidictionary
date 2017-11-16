@@ -14,8 +14,11 @@ class UpdateProfile extends Component {
         const user = firebase.auth().currentUser;
 
         try {
-            await user.updateProfile({
-               displayName: ''
+            await user.updateProfile({}).then(function () {
+                console.log('User updated infos');
+            }).catch(function (error) {
+                console.log(error);
+                this.setState({error})
             })
         }
         catch(error) {
@@ -25,35 +28,27 @@ class UpdateProfile extends Component {
     }
 
     render() {
-        let { error } = this.state;
-        const { displayName, email, photoURL } = this.props;
+        const { error } = this.state;
         const { currentUser } = firebase.auth();
 
         return(
             <UpdateProfileTemplate>
-                <UpdateProfileTemplateH1>{`Update informations of ${(currentUser.displayName) ? currentUser.displayName : currentUser.email} account.`}</UpdateProfileTemplateH1>
+                <UpdateProfileTemplateH1>{`Update informations of ${(currentUser.displayName)}`}</UpdateProfileTemplateH1>
                 <TextField
                     hintText="Username..."
                     floatingLabelText="Username"
                     type="text"
-                    value={displayName}
-                    onChange={event => this.setState({email: event.target.value })}
-                    errorText={`${error}`}
-                /><br />
-                <TextField
-                    hintText="Email..."
-                    floatingLabelText="Email"
-                    type="text"
-                    value={email}
-                    onChange={event => this.setState({email: event.target.value })}
+                    defaultValue={currentUser.displayName}
+                    onChange={(event) => currentUser.updateProfile({displayName: event.target.value})}
                     errorText={`${error}`}
                 /><br />
                 <TextField
                     hintText="Photo url..."
                     floatingLabelText="Photo Url"
                     type="text"
-                    value={`${photoURL}`}
-                    onChange={event => this.setState({email: event.target.value })}
+                    fullWidth={true}
+                    defaultValue={currentUser.photoURL}
+                    onChange={(event) => currentUser.updateProfile({photoURL: event.target.value})}
                     errorText={`${error}`}
                 /><br />
                 <FlatButton

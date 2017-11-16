@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 import {LoginTemplate, LoginTemplateH1} from '../templates/LoginTemplate';
+import Logout from './Logout';
 import firebase from 'firebase';
 
 class Login extends Component {
@@ -11,25 +12,6 @@ class Login extends Component {
         password: '',
         error: ''
     };
-
-    async logoutUser() {
-            try {
-                await firebase.auth().signOut()
-                    .then(() => {
-                        console.log("Succesfully logout.");
-                        this.setState({
-                            email: '',
-                            password: ''
-                        });
-                    })
-                    .catch((error => {
-                        console.log(error);
-                    }))
-            }
-            catch(error) {
-            console.log(error);
-        }
-    }
 
     async userLoginRegister() {
         const { email, password } = this.state;
@@ -104,16 +86,7 @@ class Login extends Component {
                     /><br />
                 </LoginTemplate>
                 :
-                <LoginTemplate>
-                    <LoginTemplateH1>Logout by pressing the button.</LoginTemplateH1>
-                    <FlatButton
-                        label="Logout"
-                        labelPosition="before"
-                        primary={true}
-                        icon={<CheckCircle />}
-                        onClick={this.logoutUser.bind(this)}
-                    />
-                </LoginTemplate>
+                <Logout/>
         )
     }
 }

@@ -15,17 +15,19 @@ class Profile extends Component {
                         <ProfileTableTr>
                             <ProfileTableTh>Username</ProfileTableTh>
                             <ProfileTableTh>Email</ProfileTableTh>
+                            <ProfileTableTh>Avatar</ProfileTableTh>
                         </ProfileTableTr>
                         </thead>
                         <tbody>
                         <ProfileTableTr>
                             <ProfileTableTd>{`${currentUser.displayName}`}</ProfileTableTd>
                             <ProfileTableTd>{`${currentUser.email}`}</ProfileTableTd>
+                            <ProfileTableTd><img src={currentUser.photoURL} style={{width: '100px', height: '100px'}} alt={currentUser.displayName}/></ProfileTableTd>
                         </ProfileTableTr>
                         </tbody>
                     </ProfileTable>
 
-                    <UpdateProfile email={currentUser.email} displayName={currentUser.displayName} photoURL={currentUser.photoURL}/>
+                    <UpdateProfile />
                 </div>
                 :
                 <div>
