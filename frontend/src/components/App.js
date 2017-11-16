@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import NavBar from "./NavBar";
-import User from "./Login";
+import Login from "./Login";
 import firebase from 'firebase';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {AppTemplate, Header} from '../templates/AppTemplate';
@@ -50,7 +50,7 @@ class App extends Component {
             <MuiThemeProvider>
                 <div>
                     <NavBar/>
-                    <User/>
+                    <Login/>
                 </div>
             </MuiThemeProvider>
     )
