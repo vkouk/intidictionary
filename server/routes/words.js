@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     res.send('API BackEndServer');
 });
 
-router.get('/users', (req, res) => {
+router.get('/words', (req, res) => {
     database.query('SELECT * FROM users')
         .then((rows, err) => {
             if(err) {

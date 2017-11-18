@@ -18,7 +18,6 @@ const SuccessMessage = styled.p`
     font-size: 13px;
     color: #46880d;
     font-weight: bold;
-    font-style: italic;
 `;
 
 export {

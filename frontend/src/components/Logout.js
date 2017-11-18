@@ -9,7 +9,7 @@ class Logout extends Component {
         try {
             await firebase.auth().signOut()
                 .then(() => {
-                    console.log("We're really sorry watching you leaving..");
+                    console.log("Logout succesfully.");
                 })
                 .catch((error => {
                     console.log(error);
@@ -23,7 +23,7 @@ class Logout extends Component {
     render() {
         return (
             <LoginTemplate>
-                <LoginTemplateH1>Logout by pressing the button.</LoginTemplateH1>
+                <LoginTemplateH1>We're really sorry watching you leaving..</LoginTemplateH1>
                 <FlatButton
                     label="Logout"
                     labelPosition="before"

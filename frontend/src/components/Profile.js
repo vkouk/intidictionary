@@ -7,31 +7,26 @@ const Profile = () => {
     const { currentUser } = firebase.auth();
 
     return (
-        (currentUser)
-            ? <div>
-                <ProfileTable>
-                    <thead>
-                    <ProfileTableTr>
-                        <ProfileTableTh>Username</ProfileTableTh>
-                        <ProfileTableTh>Email</ProfileTableTh>
-                        <ProfileTableTh>Avatar</ProfileTableTh>
-                    </ProfileTableTr>
-                    </thead>
-                    <tbody>
-                    <ProfileTableTr>
-                        <ProfileTableTd>{`${currentUser.displayName}`}</ProfileTableTd>
-                        <ProfileTableTd>{`${currentUser.email}`}</ProfileTableTd>
-                        <ProfileTableTd><img src={currentUser.photoURL} style={{width: '100px', height: '100px'}} alt={currentUser.displayName}/></ProfileTableTd>
-                    </ProfileTableTr>
-                    </tbody>
-                </ProfileTable>
+        <div>
+            <ProfileTable>
+                <thead>
+                <ProfileTableTr>
+                    <ProfileTableTh>Username</ProfileTableTh>
+                    <ProfileTableTh>Email</ProfileTableTh>
+                    <ProfileTableTh>Avatar</ProfileTableTh>
+                </ProfileTableTr>
+                </thead>
+                <tbody>
+                <ProfileTableTr>
+                    <ProfileTableTd>{`${currentUser.displayName}`}</ProfileTableTd>
+                    <ProfileTableTd>{`${currentUser.email}`}</ProfileTableTd>
+                    <ProfileTableTd><img src={currentUser.photoURL} style={{width: '100px', height: '100px'}} alt={currentUser.displayName}/></ProfileTableTd>
+                </ProfileTableTr>
+                </tbody>
+            </ProfileTable>
 
-                <UpdateProfile />
-            </div>
-            :
-            <div>
-                <p>Please sign in before access this page.</p>
-            </div>
+            <UpdateProfile />
+        </div>
     )
 }
 

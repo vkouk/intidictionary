@@ -3,7 +3,6 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 import {LoginTemplate, LoginTemplateH1} from '../templates/LoginTemplate';
-import Logout from './Logout';
 import firebase from 'firebase';
 
 class Login extends Component {
@@ -55,38 +54,34 @@ class Login extends Component {
 
     render() {
         let { email, password, error } = this.state;
-        const { currentUser } = firebase.auth();
 
         return (
-            (!currentUser) ?
-                <LoginTemplate>
-                    <LoginTemplateH1>Login or create an account</LoginTemplateH1>
-                    <TextField
-                        hintText="Email..."
-                        floatingLabelText="Email"
-                        type="text"
-                        value={email}
-                        onChange={event => this.setState({email: event.target.value })}
-                        errorText={`${error}`}
-                    /><br />
-                    <TextField
-                        hintText="Password..."
-                        floatingLabelText="Password"
-                        type="password"
-                        value={password}
-                        onChange={event => this.setState({password: event.target.value })}
-                        errorText={`${error}`}
-                    /><br />
-                    <FlatButton
-                        label="Login / Register"
-                        labelPosition="before"
-                        primary={true}
-                        icon={<CheckCircle />}
-                        onClick={this.userLoginRegister.bind(this)}
-                    /><br />
-                </LoginTemplate>
-                :
-                <Logout/>
+            <LoginTemplate>
+                <LoginTemplateH1>Login or create an account</LoginTemplateH1>
+                <TextField
+                    hintText="Email..."
+                    floatingLabelText="Email"
+                    type="text"
+                    value={email}
+                    onChange={event => this.setState({email: event.target.value })}
+                    errorText={`${error}`}
+                /><br />
+                <TextField
+                    hintText="Password..."
+                    floatingLabelText="Password"
+                    type="password"
+                    value={password}
+                    onChange={event => this.setState({password: event.target.value })}
+                    errorText={`${error}`}
+                /><br />
+                <FlatButton
+                    label="Login / Register"
+                    labelPosition="before"
+                    primary={true}
+                    icon={<CheckCircle />}
+                    onClick={this.userLoginRegister.bind(this)}
+                /><br />
+            </LoginTemplate>
         )
     }
 }
