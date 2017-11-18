@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import CheckCircle from 'material-ui/svg-icons/action/check-circle';
-import { UpdateProfileTemplate, UpdateProfileTemplateH1 } from '../templates/UpdateProfileTemplate';
+import { UpdateProfileTemplate, UpdateProfileTemplateH1, SuccessMessage } from '../templates/UpdateProfileTemplate';
 
 class UpdateProfile extends Component {
     state = {
@@ -15,7 +15,8 @@ class UpdateProfile extends Component {
 
         try {
             await user.updateProfile({}).then(function () {
-                console.log('User updated infos');
+                console.log('User updated successful personal informations.');
+                document.getElementById('successUpdate').innerHTML = 'Personal informations updated succesfully.';
             }).catch(function (error) {
                 console.log(error);
                 this.setState({error})
@@ -58,6 +59,7 @@ class UpdateProfile extends Component {
                     icon={<CheckCircle />}
                     onClick={this.updateprofile.bind(this)}
                 /><br />
+                <SuccessMessage id='successUpdate' />
             </UpdateProfileTemplate>
         )
     }

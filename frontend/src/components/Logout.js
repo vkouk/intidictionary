@@ -9,7 +9,7 @@ class Logout extends Component {
         try {
             await firebase.auth().signOut()
                 .then(() => {
-                    console.log("Succesfully logout.");
+                    console.log("We're really sorry watching you leaving..");
                 })
                 .catch((error => {
                     console.log(error);

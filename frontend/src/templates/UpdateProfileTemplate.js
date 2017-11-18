@@ -14,7 +14,15 @@ const UpdateProfileTemplateH1 = styled.h1`
     padding-bottom: 20px;
 `;
 
+const SuccessMessage = styled.p`
+    font-size: 13px;
+    color: #46880d;
+    font-weight: bold;
+    font-style: italic;
+`;
+
 export {
     UpdateProfileTemplate,
-    UpdateProfileTemplateH1
+    UpdateProfileTemplateH1,
+    SuccessMessage
 };
