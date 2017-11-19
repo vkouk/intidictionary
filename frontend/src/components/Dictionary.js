@@ -4,7 +4,7 @@ class Dictionary extends Component {
     state = { censoredWords: [] };
 
     componentDidMount() {
-        fetch('/api/censoredwords')
+        fetch('http://localhost:3001/api/censoredwords')
             .then((response) => { return response.json() } )
             .catch((error) => console.warn("fetch error:", error))
             .then((censoredWords) => {
@@ -16,9 +16,9 @@ class Dictionary extends Component {
         const { censoredWords } = this.state;
 
         return(
-            censoredWords.forEach((i, word) => {
-                console.log('Word: ' + i + " - value: " + word.word);
-            })
+            <div>
+                Hello.
+            </div>
         );
     }
 }
