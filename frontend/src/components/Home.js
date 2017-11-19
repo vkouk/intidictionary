@@ -9,7 +9,6 @@ class Home extends Component {
         return (
             <div>
                 <p>{`Hello ${currentUser.displayName}`}</p>
-
                 <Dictionary />
             </div>
         )

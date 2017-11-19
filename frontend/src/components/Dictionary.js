@@ -17,11 +17,11 @@ class Dictionary extends Component {
 
         return(
             <div>
-                {censoredWords.map(word => {
-                    return(
-                        <li key={word.id}>{word.word}</li>
-                    )
-                })}
+                {/*{censoredWords.map(word => {*/}
+                    {/*return(*/}
+                        {/*<li key={word.id}>{word.word}</li>*/}
+                    {/*)*/}
+                {/*})}*/}
             </div>
         );
     }

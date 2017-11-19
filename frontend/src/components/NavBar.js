@@ -4,6 +4,8 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
 import {Card, CardHeader} from 'material-ui/Card';
+import ErrorOutline from 'material-ui/svg-icons/alert/error-outline';
+import VerifiedUser from 'material-ui/svg-icons/action/verified-user';
 import {NavBarButton} from '../templates/NavBarTemplate';
 import { Link } from 'react-router';
 
@@ -52,6 +54,13 @@ class NavBar extends Component {
                                     <CardHeader
                                         title={`Hello, ${currentUser.displayName}`}
                                         avatar={`${currentUser.photoURL}`}
+                                        subtitle={ (!currentUser.emailVerified) ?
+                                            <div>
+                                                Verify email {<ErrorOutline/>}
+                                            </div>
+                                            :
+                                            <VerifiedUser/>
+                                        }
                                     />
                                 </Card>
                                 :

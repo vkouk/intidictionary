@@ -3,12 +3,31 @@ import firebase from 'firebase';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import CheckCircle from 'material-ui/svg-icons/action/check-circle';
+import Email from 'material-ui/svg-icons/communication/email';
 import { UpdateProfileTemplate, UpdateProfileTemplateH1, SuccessMessage } from '../templates/UpdateProfileTemplate';
 
 class UpdateProfile extends Component {
     state = {
         error: ''
     };
+
+    async verifyEmail() {
+        const user = firebase.auth().currentUser;
+
+        try {
+            await user.sendEmailVerification().then(function () {
+                console.log('Verification email sent.');
+                document.getElementById('successUpdate').innerHTML = 'Check mailbox and verify your email.';
+            }).catch(function (error) {
+                console.log(error);
+                this.setState({error})
+            })
+        }
+        catch(error) {
+            console.log(error);
+            this.setState({error});
+        }
+    }
 
     async updateprofile() {
         const user = firebase.auth().currentUser;
@@ -59,6 +78,19 @@ class UpdateProfile extends Component {
                     icon={<CheckCircle />}
                     onClick={this.updateprofile.bind(this)}
                 /><br />
+                {(!currentUser.emailVerified)
+                    ?
+                    <div>
+                        <FlatButton
+                            label="Verify "
+                            labelPosition="before"
+                            primary={true}
+                            icon={<Email />}
+                            onClick={this.verifyEmail.bind(this)}
+                        /><br />
+                    </div>
+                    : null
+                }
                 <SuccessMessage id='successUpdate' />
             </UpdateProfileTemplate>
         )
