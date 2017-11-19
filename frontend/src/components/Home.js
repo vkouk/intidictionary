@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Dictionary from './Dictionary';
 import firebase from 'firebase';
 
 class Home extends Component {
@@ -8,6 +9,8 @@ class Home extends Component {
         return (
             <div>
                 <p>{`Hello ${currentUser.displayName}`}</p>
+
+                <Dictionary />
             </div>
         )
     }

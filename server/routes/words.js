@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
     res.send('API BackEndServer');
 });
 
-router.get('/words', (req, res) => {
-    database.query('SELECT * FROM users')
+router.get('/censoredwords', (req, res) => {
+    database.query('SELECT * FROM censoredwords')
         .then((rows, err) => {
             if(err) {
                 console.log(err);

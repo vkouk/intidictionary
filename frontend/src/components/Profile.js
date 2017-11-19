@@ -27,7 +27,7 @@ const Profile = () => {
 
             <UpdateProfile />
         </div>
-    )
-}
+    );
+};
 
 export default Profile;
