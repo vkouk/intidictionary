@@ -4,6 +4,7 @@ import App from '../components/App';
 import Home from '../components/Home';
 import Profile from '../components/Profile';
 import Logout from "../components/Logout";
+import NotFound from "../components/404";
 
 const createRoutes = () => {
     return (
@@ -21,6 +22,10 @@ const createRoutes = () => {
             <Route
                 path={'/logout'}
                 component={Logout}
+            />
+            <Route
+                path={'*'}
+                component={NotFound}
             />
         </Route>
     )

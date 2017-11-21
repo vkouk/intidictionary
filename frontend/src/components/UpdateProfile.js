@@ -15,7 +15,7 @@ class UpdateProfile extends Component {
         const user = firebase.auth().currentUser;
 
         try {
-            await user.sendEmailVerification().then(function () {
+            await user.sendEmailVerification().then(function() {
                 console.log('Verification email sent.');
                 document.getElementById('successUpdate').innerHTML = 'Check mailbox and verify your email.';
             }).catch(function (error) {
@@ -33,7 +33,7 @@ class UpdateProfile extends Component {
         const user = firebase.auth().currentUser;
 
         try {
-            await user.updateProfile({}).then(function () {
+            await user.updateProfile({}).then(function() {
                 console.log('User updated successful personal informations.');
                 document.getElementById('successUpdate').innerHTML = 'Personal informations updated succesfully.';
             }).catch(function (error) {
