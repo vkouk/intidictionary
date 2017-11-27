@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import ajax from "../utils/ajax";
 
 class Dictionary extends Component {
-    state = { censoredWords: [] };
+    state = { censoredWords: [], gr_words: [], en_words: [] };
 
-    componentDidMount() {
-        fetch('/api/censoredwords')
-            .then((response) => { return response.json() } )
-            .catch((error) => console.warn("fetch error:", error))
-            .then((censoredWords) => {
-                this.setState({ censoredWords })
-            });
+    async componentDidMount() {
+        const censoredWords = await ajax.fetchCensoredWords();
+        const gr_words = await ajax.fetchGrWords();
+        const en_words = await ajax.fetchEnWords();
+        this.setState({ censoredWords, gr_words, en_words });
     }
 
     render() {
@@ -19,8 +20,10 @@ class Dictionary extends Component {
             <div>
                 {/*{censoredWords.map(word => {*/}
                     {/*return(*/}
-                        {/*<li key={word.id}>{word.word}</li>*/}
-                    {/*)*/}
+                        {/*<SelectField value={word.key} onChange={this.handleChange}>*/}
+                            {/*<MenuItem value={word.key} label={word.word} primaryText={word.word} />*/}
+                        {/*</SelectField>*/}
+                    {/*);*/}
                 {/*})}*/}
             </div>
         );

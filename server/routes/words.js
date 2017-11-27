@@ -19,4 +19,26 @@ router.get('/censoredwords', (req, res) => {
     });
 });
 
+router.get('/gr_words', (req, res) => {
+    database.query('SELECT * FROM gr_words')
+        .then((rows, err) => {
+            if(err) {
+                console.log(err);
+                database.closeConnection();
+            }
+            res.json(rows);
+        });
+});
+
+router.get('/en_words', (req, res) => {
+    database.query('SELECT * FROM en_words')
+        .then((rows, err) => {
+            if(err) {
+                console.log(err);
+                database.closeConnection();
+            }
+            res.json(rows);
+        });
+});
+
 module.exports = router;
