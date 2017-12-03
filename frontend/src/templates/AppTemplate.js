@@ -11,6 +11,7 @@ const AppTemplate = (props) => {
 }
 
 const Container = styled.div`
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-item: center;
