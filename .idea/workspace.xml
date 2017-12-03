@@ -4,8 +4,6 @@
     <list default="true" id="a7109e8b-6cdb-4181-8327-77a3df2a90cc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Dictionary.js" afterPath="$PROJECT_DIR$/frontend/src/components/Dictionary.js" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.js" afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/templates/AppTemplate.js" afterPath="$PROJECT_DIR$/frontend/src/templates/AppTemplate.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +23,8 @@
       <file leaf-file-name="Dictionary.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/Dictionary.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="35" column="101" lean-forward="false" selection-start-line="35" selection-start-column="101" selection-end-line="35" selection-end-column="101" />
+            <state relative-caret-position="488">
+              <caret line="78" column="26" lean-forward="true" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#439#665#0" expanded="false" />
@@ -308,12 +306,12 @@
       <workItem from="1512160557688" duration="219000" />
       <workItem from="1512160919056" duration="26000" />
       <workItem from="1512160965427" duration="4812000" />
-      <workItem from="1512302774722" duration="12264000" />
+      <workItem from="1512302774722" duration="12895000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71578000" />
+    <option name="totallyTimeSpent" value="72209000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -722,8 +720,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Dictionary.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="35" column="101" lean-forward="false" selection-start-line="35" selection-start-column="101" selection-end-line="35" selection-end-column="101" />
+        <state relative-caret-position="488">
+          <caret line="78" column="26" lean-forward="true" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#439#665#0" expanded="false" />

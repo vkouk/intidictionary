@@ -72,9 +72,6 @@ class Dictionary extends Component {
                 this.setState({ error: '', translatedWord: enWord });
             }
         }
-
-        console.log(word);
-        console.log(this.state.translatedWord);
     };
 
     render() {
