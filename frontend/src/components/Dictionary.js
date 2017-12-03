@@ -33,7 +33,7 @@ class Dictionary extends Component {
         this.setState({ censoredWords, gr_words, en_words });
     }
 
-    handleChoiceChange = (event, index, choice) => this.setState({choice, translatedWord: '', word: ''});
+    handleChoiceChange = (event, index, choice) => this.setState({choice, translatedWord: '', word: '', error: ''});
 
     translateWord = () => {
         const { censoredWords, gr_words, en_words, word, choice } = this.state;
