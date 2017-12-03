@@ -1,7 +1,7 @@
 export default {
   async fetchCensoredWords() {
       try {
-          let response = await fetch('/api/censoredwords');
+          let response = await fetch('https://intidictionary.herokuapp.com/api/censoredwords');
           let responseJson = await response.json();
           return responseJson;
       }
@@ -12,7 +12,7 @@ export default {
 
     async fetchGrWords() {
         try {
-            let response = await fetch('/api/gr_words');
+            let response = await fetch('https://intidictionary.herokuapp.com/api/gr_words');
             let responseJson = await response.json();
             return responseJson;
         }
@@ -23,7 +23,7 @@ export default {
 
     async fetchEnWords() {
         try {
-            let response = await fetch('/api/en_words');
+            let response = await fetch('https://intidictionary.herokuapp.com/api/en_words');
             let responseJson = await response.json();
             return responseJson;
         }

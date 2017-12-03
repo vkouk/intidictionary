@@ -29,5 +29,5 @@
   "proxy": "https://intidictionary.herokuapp.com",
   "main": "src/index.js",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/vkoukoutis/intidictionary#readme"
+  "homepage": "."
 }
