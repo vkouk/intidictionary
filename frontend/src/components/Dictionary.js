@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TextField from 'material-ui/TextField';
+import AutoComplete from 'material-ui/AutoComplete';
 import IconButton from 'material-ui/IconButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -24,7 +24,7 @@ const styles = {
 };
 
 class Dictionary extends Component {
-    state = { censoredWords: [], gr_words: [], en_words: [], error: '', word: '', translatedWord: '', choice: 'gr'};
+    state = { censoredWords: [], gr_words: [], en_words: [], error: '', searchText: '', translatedWord: '', choice: 'gr'};
 
     async componentDidMount() {
         const censoredWords = await ajax.fetchCensoredWords();
@@ -33,20 +33,25 @@ class Dictionary extends Component {
         this.setState({ censoredWords, gr_words, en_words });
     }
 
-    handleChoiceChange = (event, index, choice) => this.setState({choice, translatedWord: '', word: '', error: ''});
+    handleChoiceChange = (event, index, choice) => this.setState({choice, translatedWord: '', searchText: '', error: ''});
+
+    searchedWords = () => [
+        ...this.state.en_words.map(word => word.en_word),
+        ...this.state.gr_words.map(word => word.gr_word)
+    ];
 
     translateWord = () => {
-        const { censoredWords, gr_words, en_words, word, choice } = this.state;
+        const { censoredWords, gr_words, en_words, searchText, choice } = this.state;
         const censoredwords = censoredWords.map(word => word.word);
 
         if (choice === 'gr') {
             const enWords = en_words.map(word => word.en_word);
 
-            if (censoredwords.includes(word)) {
+            if (censoredwords.includes(searchText)) {
                 this.setState({ error: 'This is a censored word to translate.' });
             }
-            if (enWords.includes(word)) {
-                let enwordposition = enWords.indexOf(word) + 1;
+            if (enWords.includes(searchText)) {
+                let enwordposition = enWords.indexOf(searchText) + 1;
                 let grWord = gr_words.map(word => {
                     if (enwordposition === word.en_word_id) {
                         return word.gr_word
@@ -60,8 +65,8 @@ class Dictionary extends Component {
         if (choice === 'en') {
             const grWords = gr_words.map(word => word.gr_word);
 
-            if (grWords.includes(word)) {
-                let grwordposition = grWords.indexOf(word) + 1;
+            if (grWords.includes(searchText)) {
+                let grwordposition = grWords.indexOf(searchText) + 1;
                 let enWord = en_words.map(word => {
                    if (grwordposition === word.id) {
                         return word.en_word;
@@ -79,13 +84,14 @@ class Dictionary extends Component {
             <DictionaryTemplate>
                 <div>
                     <DictionaryParagraph>Translate your word!</DictionaryParagraph>
-                    <TextField
+                    <AutoComplete
                         hintText="Type a word to translate..."
+                        fullWidth={true}
                         style={styles.translateField}
-                        name="translate-word"
-                        type="text"
-                        value={this.state.word}
-                        onChange={(event, index, word) => this.setState({word: event.target.value})}
+                        dataSource={this.searchedWords()}
+                        filter={AutoComplete.caseInsensitiveFilter}
+                        onUpdateInput={(searchText) => this.setState({ searchText })}
+                        maxSearchResults={5}
                         errorText={`${this.state.error}`}
                     />
                     <IconButton
