@@ -76,6 +76,9 @@ class Dictionary extends Component {
                 });
                 this.setState({ error: '', translatedWord: enWord });
             }
+            if (!grWords.includes(searchText)) {
+                this.setState({ error: 'Δε βρέθηκε η αντίστοιχη λέξη!' });
+            }
         }
     };
 
