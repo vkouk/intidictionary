@@ -65,6 +65,9 @@ class Dictionary extends Component {
         if (choice === 'en') {
             const grWords = gr_words.map(word => word.gr_word);
 
+            if (censoredwords.includes(searchText)) {
+                this.setState({ error: 'Δε μπορεί να μεταφραστεί αυτή η λέξη.' });
+            }
             if (grWords.includes(searchText)) {
                 let grwordposition = grWords.indexOf(searchText) + 1;
                 let enWord = en_words.map(word => {
@@ -75,9 +78,6 @@ class Dictionary extends Component {
                    return enWord;
                 });
                 this.setState({ error: '', translatedWord: enWord });
-            }
-            if (!grWords.includes(searchText)) {
-                this.setState({ error: 'Δε βρέθηκε η αντίστοιχη λέξη!' });
             }
         }
     };
